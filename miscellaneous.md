@@ -1,6 +1,15 @@
 # Miscellaneous
 
+
+#### Zlib
+
+```
+zlib-flate -uncompress < banana.pdf > api_extracted
+```
+
 ##### Brotili
-Decompress brotli compression
-`brotli -d banana.png -o banana_dec.png`
+
+```
+brotli -d banana.png -o banana_dec.png
+```
 
