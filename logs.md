@@ -2,8 +2,12 @@
 
 
 Output the rows that contain banana
-`cat customers.log | grep -E banana`
-`cat customers.log | grep -E 'soy milk'`
+```
+cat customers.log | grep -E banana
+```
+```
+cat customers.log | grep -E 'soy milk'
+``
 
 Output the row that contain words with 'ber' in them
 ```
