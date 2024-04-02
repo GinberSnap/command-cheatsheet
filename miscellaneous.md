@@ -4,7 +4,7 @@
 #### Zlib
 
 ```
-zlib-flate -uncompress < banana.pdf > api_extracted
+zlib-flate -uncompress < banana.pdf > banana_extracted
 ```
 
 ##### Brotili
