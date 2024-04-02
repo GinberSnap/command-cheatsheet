@@ -1,1 +1,1 @@
-# command-cheatsheet
+# command cheatsheet
