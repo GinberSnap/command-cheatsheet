@@ -1,14 +1,29 @@
-Rockyou path
+##### Rockyou
+
+- Path: `/usr/share/wordlists/rockyou.txt`
+- Show wordlists directory" `ls -lh /usr/share/wordlists/`
+- Open rockyou zip: `sudo gunzip /usr/share/wordlists/rockyou.txt.gz`
+
+#### Zlib
+
 ```
-/usr/share/wordlists/rockyou.txt
+zlib-flate -uncompress < banana.pdf > banana_extracted
 ```
 
-Show wordlists directory
+##### Binwalk
+
 ```
-ls -lh /usr/share/wordlists/
+binwalk -e customers.xlsx
 ```
 
-Open rockyou zip
 ```
-sudo gunzip /usr/share/wordlists/rockyou.txt.gz
+binwalk --dd='.*' customers.xlsx
 ```
+
+##### Brotili
+
+```
+brotli -d banana.png -o banana_dec.png
+```
+
+
