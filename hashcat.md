@@ -1,6 +1,6 @@
 # Hashcat quick reference
 
-`hashcat -m 500 -a 0 -o pass.txt hash.txt /usr/share/wordlists/rockyou.txt`
+`hashcat -m 500 -a 0 -o result.txt hash.txt /usr/share/wordlists/rockyou.txt`
 
 `-w 3` : Show status as process
 
