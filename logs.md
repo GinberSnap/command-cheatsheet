@@ -36,7 +36,7 @@ awk '{print $0}' customers.log
 
 Output 2nd, 3rd, and 7th columns 
 ```
-c`at customers.log | awk -F ',' '{print $2 "\t" $3 "\t" $7}' 
+cat customers.log | awk -F ',' '{print $2 "\t" $3 "\t" $7}' 
 ```
 
 Filter by the content of a specific columns
@@ -53,7 +53,6 @@ Count how many rows that contain bar in the 4th column
 ```
 awk -F',' '{print $4}' customers.log | grep -o '\<.*ber.*\>' | wc -l
 ```
-
 
 List all items in the 5th column along with the number of times they appear.
 ```
@@ -102,6 +101,11 @@ awk -F " " '{print $5}' access.log | sort | wc -l
 Get the rows that contains admin and SUCCESS, then Output the total of all value from the 5th column. 
 ```
 awk '/admin/ && /UPLOAD/ {sum += $5} END {print sum} access.log
+```
+
+Output IP address and the number of time they appear and sort into 1st and 2nd column.
+```
+grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" access.log | sort | uniq -c | awk '{print $1 "\t" $2}'
 ```
 
 
