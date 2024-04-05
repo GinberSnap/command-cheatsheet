@@ -103,6 +103,11 @@ Get the rows that contains admin and SUCCESS, then Output the total of all value
 awk '/admin/ && /UPLOAD/ {sum += $5} END {print sum} access.log
 ```
 
+Display IP address
+```
+grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" auth.log
+```
+
 Output IP address and the number of time they appear and sort into 1st and 2nd column.
 ```
 grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" access.log | sort | uniq -c | awk '{print $1 "\t" $2}'
