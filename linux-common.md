@@ -27,3 +27,9 @@ brotli -d banana.png -o banana_dec.png
 ```
 
 
+### Check Checksum
+```
+wget -O- http://www.example.com:80/example.pdf | sha256sum
+```
+
+
