@@ -12,3 +12,5 @@ find / -name libssl.so.1.1
 ```
 
 [OpenSSL download link](https://www.openssl.org/source/)
+
+[Source](https://stackoverflow.com/questions/72133316/libssl-so-1-1-cannot-open-shared-object-file-no-such-file-or-directory)
