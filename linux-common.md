@@ -1,3 +1,11 @@
+
+### Open VScode
+
+```
+code .
+```
+
+
 ### Rockyou
 
 - Path: `/usr/share/wordlists/rockyou.txt`
