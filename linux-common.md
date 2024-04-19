@@ -32,7 +32,8 @@ brotli -d banana.png -o banana_dec.png
 wget -O- http://www.example.com:80/example.pdf | sha256sum
 ```
 
-### Open PDF 
+### Redacted PDF
+Thunar allows you to see redacted text by highlighting it. 
 ```
 thunar .
 ```
