@@ -17,3 +17,5 @@ find / -name libssl.so.1.1
 
 
 ` 2>/dev/null` to exclude files that have errors or permission denied when using `find` command. 
+
+`find /lib/x86_64-linux-gun f -name libc.so  2>/dev/null`
