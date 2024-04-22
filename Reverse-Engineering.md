@@ -1,5 +1,7 @@
 ## Reverse Engineering
 
+Installing musl on kali [here](https://github.com/GinberSnap/command-cheatsheet/blob/main/setting-up-kali.md#installing-musl)
+
 ### GDB
 
 1. `chmod +x ./banana`
