@@ -39,5 +39,5 @@ To verify installation
 echo -e '#include <stdio.h>\nint main() { printf("Hello, musl-gcc\\n"); return 0; }' > hello_musl.c
 musl-gcc hello_musl.c -o hello_musl
 ./hello_musl
-``
+```
 
