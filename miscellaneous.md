@@ -15,6 +15,11 @@ find / -name libssl.so.1.1
 
 [Source](https://stackoverflow.com/questions/72133316/libssl-so-1-1-cannot-open-shared-object-file-no-such-file-or-directory)
 
+Empty the temp file or create a new temp file if it doesn't exist. 
+```
+cat /dev/null > temp
+```
+
 
 ` 2>/dev/null` to exclude files that have errors or permission denied when using `find` command. 
 
