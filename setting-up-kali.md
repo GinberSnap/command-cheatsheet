@@ -22,6 +22,12 @@ sudo mv OneRuleToRuleThemAll.rule /usr/share/hashcat/rules/
 sudo apt install gdb
 ```
 
+## Installing GEF
+```
+wget -O ~/.gdbinit-gef.py -q https://gef.blah.cat/py
+echo source ~/.gdbinit-gef.py >> ~/.gdbinit
+```
+
 ## Installing VScode
 
 ```
