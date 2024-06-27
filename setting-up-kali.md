@@ -6,6 +6,13 @@
 2. Open Virtual Machine, instead of creating a new one.
 3. Then select a unzipped file to start the machine. 
 
+### Kali update
+```
+sudo apt update
+sudo apt full-upgrade -y
+```
+
+
 ## Wordlists & Rules
 
 ```
