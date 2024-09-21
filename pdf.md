@@ -1,9 +1,9 @@
 # Crack PDF password
 
 
-'''
+```
 pdf2john secret.pdf > hash.txt
-'''
+```
 
 ```
 cat hash.txt | cut -d ":" -f 2- > pdf_hash.txt
