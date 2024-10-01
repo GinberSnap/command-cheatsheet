@@ -113,5 +113,9 @@ Output IP address and the number of time they appear and sort into 1st and 2nd c
 grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" access.log | sort | uniq -c | awk '{print $1 "\t" $2}'
 ```
 
+Count how many unique IP addresses are in the column 1. 
+```
+cat access.log | cut -d " " -f 1 | sort | uniq | wc -l
+```
 
 
