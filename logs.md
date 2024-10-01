@@ -118,4 +118,9 @@ Count how many unique IP addresses are in the column 1.
 cat access.log | cut -d " " -f 1 | sort | uniq | wc -l
 ```
 
+Count how many unique value are in the column 3
+```
+awk -F " " '{print $3}' access.log | sort | uniq | wc -l
+```
+
 
