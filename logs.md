@@ -123,4 +123,22 @@ Count how many unique value are in the column 3
 awk -F " " '{print $3}' access.log | sort | uniq | wc -l
 ```
 
+What is the username with the most login attempts?  - Extract the 3rd column, sort by the usernames by frequency
+
+```
+cat login.log | cut -f 3 | sort | uniq -c | sort -n
+```
+
+
+What is the data with the most login attempts? - Extract the 1st field, and extract just the date, sore the date, get a frequency of each date, then sort the dates by frequency
+
+```
+cat login.log | cut -f 1 | cut -d " " -f 1 | sort | uniq -c | sort -n
+```
+
+
+
+
+
+
 
