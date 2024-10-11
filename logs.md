@@ -137,6 +137,13 @@ cat login.log | cut -f 1 | cut -d " " -f 1 | sort | uniq -c | sort -n
 ```
 
 
+How many total bytes did Alex upload?
+
+```
+cat vsftpd.log | grep alex | grep 'OK UPLOAD' | awk -F ',' '{print  $3 }' | cut -f 2 -d ' ' | awk '{s+=$1} END {printf "%.0f\n", s}'
+```
+
+
 
 
 
