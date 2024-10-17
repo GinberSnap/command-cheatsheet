@@ -4,6 +4,21 @@
 ```
 hashcat -m 500 -a 0 -o result.txt hash /usr/share/wordlists/rockyou.txt
 ```
+
+
+#### Use Hashcat on Windows
+
+```
+cd hashcat
+
+hashcat.ext -m 0 -a 0 c:\User\Desktop\hashcat\hash.txt c:\User\Desktop\hashcat\wordlists\rockyou.txt
+```
+Mask - `-a 6` is hybrid mode. 
+```
+hashcat.ext -m 0 -a 6 c:\User\Desktop\hashcat\hash.txt c:\User\Desktop\hashcat\wordlists\rockyou.txt  ?d?d?d
+```
+
+
 #### Combining multiple wordlists
 ```
 /usr/share/hashcat-utils/combinator.bin fruits.txt veggies.txt > recipes.txt
