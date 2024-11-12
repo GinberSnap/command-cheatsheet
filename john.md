@@ -1,5 +1,11 @@
 # John
 
+
+First thing first. Unzip John.
+```
+sudo gzip -d /usr/share/wordlists/rockyou.txt.gz
+```
+
 ```
 john --show hash.txt
 ```
