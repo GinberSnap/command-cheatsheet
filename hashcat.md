@@ -32,8 +32,12 @@ cewl -m 3 -w recipes.txt https://www.example.com/fruits
 ```
 #### Using rules
 ```
-hashcat -w 3 -a 0 -m 500 hash wordlist.txt -r special-rules.rule
+hashcat -w 3 -a 0 -m 500 hash wordlist.txt -r OneRuleToRuleThemStill.rule
 ```
+```
+hashcat -w 3 -a 0 -m 500 hash wordlist.txt -r OneRuleToRuleThem.rule
+```
+
 
 `-w 3` : Show status as process
 
