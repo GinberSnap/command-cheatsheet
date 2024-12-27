@@ -44,6 +44,12 @@ sudo apt install ./code_1.88.1-12345_amd64.deb
 Note: Select `Arm64 .deb` for Raspberry pi 
 
 
+## Install Ghidra
+
+```
+sudo apt install ghidra
+```
+
 ## Installing musl
 
 ```
