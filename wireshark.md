@@ -1,5 +1,11 @@
 ## Wireshark
 
+To find the organization operates the DNS resolver using command line
+```
+whois 127.10.10.10
+```
+
+
 * To open a file with Wireshark `wireshark -r example.pcapng`
 * **Client** is the source.
 * **Server** is the destination.
@@ -20,6 +26,16 @@ To display the source (client) and destination (server) IP address
 ```
 tshark -r example.pcap -T fields -e ip.src -e ip.dst
 ```
+
+To find the IPv4 address responsible for www.example.com
+
+```
+tshark -r example.pcap -Y "dns.qry.name == \"www.example.com\" && dns.flags.response == 1" -T fields -e dns.a
+```
+```
+(WireShark Filter) dns.qry.name == "www.example.com" && dns.flags.response == 1
+```
+
 
 To find the hostname of the first website the client visited
 ```
