@@ -1,6 +1,9 @@
 
 ## Wireshark
 
+[Nameserver Lookup](#nameserver)
+
+
 To find the organization operates the DNS resolver using command line
 ```
 whois 127.10.10.10
@@ -72,6 +75,7 @@ To find a DNS query.
 (Wireshark filter) dns.qry.type == 15
 ```
 
+## Nameserver
 To find the domain queried in a **nameserver (NS) lookup**.
 ```
 tshark -r example.pcapng -Y "dns.qry.type == 2" -T fields -e dns.qry.name
