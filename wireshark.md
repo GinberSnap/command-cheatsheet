@@ -5,7 +5,7 @@
 * [PTR](#ptr)
 * [ICMP}(#icmp)
 * [Extracting data](#extracting-data)
-* [FTP(#ftp)
+* [FTP](#ftp)
 
 
 To find the organization operates the DNS resolver using command line
@@ -123,7 +123,7 @@ tshark -r example.pcap -Y "icmp.type == 0" -T fields -e ip.src | sort | uniq -c 
 
 ### FTP
 
-Banner can be found in the first packets with 220 response code
+Banner is a welcome message that can be found in the first packets with 220 response code
 ```
 (Wireshark filter) ftp.response.code == 220
 ```
