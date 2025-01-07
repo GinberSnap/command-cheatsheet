@@ -1,7 +1,7 @@
 
 ## Wireshark
 
-[Nameserver Lookup](#nameserver)
+[Nameserver Lookup](#nameserver)  [PTR](#ptr)
 
 
 To find the organization operates the DNS resolver using command line
@@ -75,7 +75,7 @@ To find a DNS query.
 (Wireshark filter) dns.qry.type == 15
 ```
 
-## Nameserver
+### Nameserver
 To find the domain queried in a **nameserver (NS) lookup**.
 ```
 tshark -r example.pcapng -Y "dns.qry.type == 2" -T fields -e dns.qry.name
@@ -87,7 +87,7 @@ tshark -r example.pcapng -Y "dns.qry.type == 2" -T fields -e dns.qry.name
 * Type 12 = PTR **Reverse DNS** queries
 * Type 33 = SVR 
 
-#### PTR (Pointer)
+### PTR
 
  To find PTR (Reverse DNS) packet
  ```
