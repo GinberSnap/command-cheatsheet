@@ -1,9 +1,9 @@
 
 ## Wireshark
 
-*[Nameserver Lookup](#nameserver)
-*[PTR](#ptr)
-*[Extracting data](#extracting_data)
+* [Nameserver Lookup](#nameserver)
+* [PTR](#ptr)
+* [Extracting data](#extracting-data)
 
 
 To find the organization operates the DNS resolver using command line
