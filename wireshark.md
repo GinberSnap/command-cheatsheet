@@ -1,7 +1,9 @@
 
 ## Wireshark
 
-[Nameserver Lookup](#nameserver)  [PTR](#ptr)
+*[Nameserver Lookup](#nameserver)
+*[PTR](#ptr)
+*[Extracting data](#extracting_data)
 
 
 To find the organization operates the DNS resolver using command line
@@ -108,7 +110,7 @@ To find the frame number that may contain Chromecast
 tshark -r example.pcapng -Y "mdns" -T fields -e frame.number
 ```
 
-#### Extracting data using Tshark
+### Extracting data
 To extract raw data from USB iso.data field, removing the line breaks, then reversing to binary data. Then finally save as audio.raw.
 ```
 tshark -r example.pcap -T fields -e usb.iso.data | tr -d '\n' | xxd -r -p > audio.raw
