@@ -3,7 +3,9 @@
 
 * [Nameserver Lookup](#nameserver)
 * [PTR](#ptr)
+* [ICMP}(#icmp)
 * [Extracting data](#extracting-data)
+* [FTP(#ftp)
 
 
 To find the organization operates the DNS resolver using command line
@@ -82,12 +84,17 @@ To find the domain queried in a **nameserver (NS) lookup**.
 ```
 tshark -r example.pcapng -Y "dns.qry.type == 2" -T fields -e dns.qry.name
 ```
-* Type 2 = Nameserver (NS)
+
+* Type 0 = Echo Response (Ping response)
 * Type 1 = A. IPv4 address
-* Type 28 = AAAA. IPv6 address
+* Type 2 = Nameserver (NS)
+* Type 8 = Echo Request (Ping)
 * Type 15 = MX. Mail Server
 * Type 12 = PTR **Reverse DNS** queries
-* Type 33 = SVR 
+* Type 18 = ICMP
+* Type 28 = AAAA. IPv6 address
+* Type 33 = SVR
+* 
 
 ### PTR
 
@@ -103,7 +110,23 @@ tshark -r example.pcap -Y "dns.qry.type == 33" -T fields -e dns.qry.name -e dns.
 ```
 * The one with the next lowest priority (after the primary) is the backup server.
 
+### ICMP
 
+To find the IP address of the device making ICMP requests
+```
+tshark -r example.pcap -Y "icmp.type == 8" -T fields -e ip.src | sort | uniq -c | sort -nr
+```
+To find the IP address of the device responding to the ICMP requests.
+```
+tshark -r example.pcap -Y "icmp.type == 0" -T fields -e ip.src | sort | uniq -c | sort -nr
+```
+
+### FTP
+
+Banner can be found in the first packets with 220 response code
+```
+(Wireshark filter) ftp.response.code == 220
+```
 
 To find the frame number that may contain Chromecast
 ```
