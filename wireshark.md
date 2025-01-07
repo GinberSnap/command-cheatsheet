@@ -27,17 +27,21 @@ To display the source (client) and destination (server) IP address
 tshark -r example.pcap -T fields -e ip.src -e ip.dst
 ```
 
-To find the IPv4 address responsible for www.example.com
+To find the **IPv4** address responsible for www.example.com
 
 ```
 tshark -r example.pcap -Y "dns.qry.name == \"www.example.com\" && dns.flags.response == 1" -T fields -e dns.a
 ```
 ```
-(WireShark Filter) dns.qry.name == "www.example.com" && dns.flags.response == 1
+(WireShark Filter) dns.qry.name == "\www.example.com\" && dns.flags.response == 1
+```
+TO find the **IPv6** address responsible for www.example.com
+```
+tshark -r example.pcap -Y "dns.qry.name == \"www.example.com\" && dns.aaaa" -T fields -e dns.aaaa
 ```
 
 
-To find the hostname of the first website the client visited
+To find the **hostname** of the first website the client visited
 ```
 tshark -r example.pcapng -Y "http.request" -T fields -e http.host | head -n 1
 ```
@@ -46,15 +50,15 @@ To find the third website the client visited
 tshark -r example.pcapng -Y "http.request" -T fields -e http.host | sed -n '3p'
 ```
 
-To find what software is sending the HTTP requests.
+To find what **software** is sending the HTTP requests.
 ```
 tshark -r example.pcapng -Y "http.request" -T fields -e http.user_agent
 ```
-To list the frame numbers of the ping originating from the source 127.0.0.1
+To list the **frame numbers** of the ping originating from the source 127.0.0.1
 ```
 tshark -r example.pcapng -Y "icmp.type == 8 && ip.src == 127.0.0.1" -T fields -e frame.number
 ```
-To count the number of pings from the source 127.0.0.1
+To count the number of **pings** from the source 127.0.0.1
 ```
 tshark -r example.pcapng -Y "icmp.type == 8 && ip.src == 127.0.0.1" -T fields -e frame.number | wc -l
 ```
@@ -62,14 +66,27 @@ To find the frame number that contains ARP request.
 ```
 tshark -r example.pcapng -Y "arp.opcode == 1" -T fields -e frame.number
 ```
-To find the domain queried in a nameserver (NS) lookup.
+To find a DNS query. 
+```
+(Wireshark filter) dns.qry.type == 15
+```
+
+To find the domain queried in a **nameserver (NS) lookup**.
 ```
 tshark -r example.pcapng -Y "dns.qry.type == 2" -T fields -e dns.qry.name
 ```
 * Type 2 = Nameserver (NS)
 * Type 1 = A. IPv4 address
 * Type 28 = AAAA. IPv6 address
-* 
+* Type 15 = MX. Mail Server
+* Type 12 = PTR **Reverse DNS** queries
+
+ To find PTR (Reverse DNS) packet
+ ```
+tshark -r example.pcap -Y "dns.qry.type == 12" -T fields -e ip.src -e dns.qry.name
+```
+
+
 To find the frame number that may contain Chromecast
 ```
 tshark -r example.pcapng -Y "mdns" -T fields -e frame.number
