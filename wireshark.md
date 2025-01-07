@@ -1,3 +1,4 @@
+
 ## Wireshark
 
 To find the organization operates the DNS resolver using command line
@@ -80,11 +81,22 @@ tshark -r example.pcapng -Y "dns.qry.type == 2" -T fields -e dns.qry.name
 * Type 28 = AAAA. IPv6 address
 * Type 15 = MX. Mail Server
 * Type 12 = PTR **Reverse DNS** queries
+* Type 33 = SVR 
+
+#### PTR (Pointer)
 
  To find PTR (Reverse DNS) packet
  ```
-tshark -r example.pcap -Y "dns.qry.type == 12" -T fields -e ip.src -e dns.qry.name
+tshark -r example.pcap -Y "dns.qry.type == 12" -T fields -e ip.src -e dns.qry.name -e frame.number
 ```
+If output is 10.10.172.192.in-addr.arpa, then queried IP address is 192.172.10.10. [More info on Reverse DNS lookup](https://www.cloudflare.com/learning/dns/glossary/reverse-dns/#:~:text=A%20reverse%20DNS%20lookup%20takes,DNS%20Glossary)
+
+To find SVR records (Type 33).
+```
+tshark -r example.pcap -Y "dns.qry.type == 33" -T fields -e dns.qry.name -e dns.srv.target -e dns.srv.priority -e dns.srv.weight -e dns.srv.port
+```
+* The one with the next lowest priority (after the primary) is the backup server.
+
 
 
 To find the frame number that may contain Chromecast
