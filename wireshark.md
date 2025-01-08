@@ -3,7 +3,7 @@
 
 * [Nameserver Lookup](#nameserver)
 * [PTR](#ptr)
-* [ICMP}(#icmp)
+* [ICMP](#icmp)
 * [Extracting data](#extracting-data)
 * [FTP](#ftp)
 
