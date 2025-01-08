@@ -30,6 +30,11 @@ whois 127.10.10.10
 
 ## Tshark
 
+To list all protocols used in a pcap
+```
+tshark -r example.pcap -T fields -e _ws.col.Protocol | sort | uniq
+```
+
 To display the source (client) and destination (server) IP address 
 ```
 tshark -r example.pcap -T fields -e ip.src -e ip.dst
@@ -66,6 +71,11 @@ To list the **frame numbers** of the ping originating from the source 127.0.0.1
 ```
 tshark -r example.pcapng -Y "icmp.type == 8 && ip.src == 127.0.0.1" -T fields -e frame.number
 ```
+To count the number of **pings** 
+```
+tshark -r example.pcapng -Y "icmp.type == 8" -T fields -e frame.number | wc -l
+```
+
 To count the number of **pings** from the source 127.0.0.1
 ```
 tshark -r example.pcapng -Y "icmp.type == 8 && ip.src == 127.0.0.1" -T fields -e frame.number | wc -l
