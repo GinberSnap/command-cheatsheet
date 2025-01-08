@@ -30,9 +30,26 @@ whois 127.10.10.10
 
 ## Tshark
 
+To find a packet that contains "flag" using Wireshark filter
+```
+frame contains "flag"
+```
+To find a packet that contains "flag" using Tshark
+```
+tshark -r example.pcap -Y 'frame contains "flag"'
+```
+To display the packets that has 127.0.0.1 as the source
+```
+ip.src == 127.0.0.1
+```
+
 To list all protocols used in a pcap
 ```
 tshark -r example.pcap -T fields -e _ws.col.Protocol | sort | uniq
+```
+To list all source IPs in a pcap
+```
+tshark -r example.pcap -T fields -e ip.src | sort | uniq
 ```
 
 To display the source (client) and destination (server) IP address 
