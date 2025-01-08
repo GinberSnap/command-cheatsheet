@@ -42,10 +42,14 @@ To display the packets that has 127.0.0.1 as the source
 ```
 ip.src == 127.0.0.1
 ```
+To exclude DNS and ICMP protocoles on Wireshark
+```
+not dns and not icmp
+```
 
 To list all protocols used in a pcap
 ```
-tshark -r example.pcap -T fields -e _ws.col.Protocol | sort | uniq
+tshark -r example.pcap -T fields -e _ws.col.Protocol | sort | uniq -c
 ```
 To list all source IPs in a pcap
 ```
