@@ -42,11 +42,18 @@ To display the packets that has 127.0.0.1 as the source
 ```
 ip.src == 127.0.0.1
 ```
+To count how many unique destination IPs and frequency that have the source IP of 127.0.0.1. 
+```
+tshark -r example.pcap -Y "ip.src == 127.0.0.1" -T fields -e ip.dst | sort | uniq -c
+```
+To list the top 20 most frequent destination IP addresses.
+```
+tshark -r Exfil.pcap -Y "ip.src == 192.168.64.137" -T fields -e ip.dst | sort | uniq -c | sort -rn | head -20
+```
 To exclude DNS and ICMP protocoles on Wireshark
 ```
 not dns and not icmp
 ```
-
 To list all protocols used in a pcap
 ```
 tshark -r example.pcap -T fields -e _ws.col.Protocol | sort | uniq -c
@@ -55,12 +62,10 @@ To list all source IPs in a pcap
 ```
 tshark -r example.pcap -T fields -e ip.src | sort | uniq
 ```
-
 To display the source (client) and destination (server) IP address 
 ```
 tshark -r example.pcap -T fields -e ip.src -e ip.dst
 ```
-
 To find the **IPv4** address responsible for www.example.com
 
 ```
@@ -165,6 +170,9 @@ tshark -r example.pcapng -Y "mdns" -T fields -e frame.number
 ```
 
 ### Extracting data
+
+**⚠️⚠️ PING can send message or a file!! Check for Hex data !!**
+
 To extract raw data from USB iso.data field, removing the line breaks, then reversing to binary data. Then finally save as audio.raw.
 ```
 tshark -r example.pcap -T fields -e usb.iso.data | tr -d '\n' | xxd -r -p > audio.raw
@@ -179,10 +187,13 @@ To extract checksums and remove `0x` and add space to each binary
 tshark -r example.pcap -T fields -e tcp.checksum | tr -d '\n' | sed 's/0x//g' | sed 's/../& /g' > result.txt
 ```
 
-To extrack checksums and remove line breaks. No spaces between each binary. 
+To extract checksums and remove line breaks. No spaces between each binary. 
 ```
 tshark -r example.pcap -T fields -e tcp.checksum | tr -d '\n' > result.txt
 ```
-
+To extract the Encrypted Application Data from the destination IP 127.0.0.1. Remove line breaks and add a space between each binary. 
+```
+tshark -r example.pcap -Y "ip.dst == 127.0.0.1" -T fields -e tls.app_data | tr -d '\n' | sed 's/0x//g' | sed 's/../& /g' > result.txt
+```
 
 
