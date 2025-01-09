@@ -5,6 +5,10 @@
 hashcat -m 500 -a 0 -o result.txt hash /usr/share/wordlists/rockyou.txt
 ```
 
+To crack MD5 that starts with CTF-ABCD-, followed by 4 digits.
+```
+hashcat -a 3 -m 0 hash CTF-ABCD-?d?d?d?d
+```
 
 #### Use Hashcat on Windows
 
