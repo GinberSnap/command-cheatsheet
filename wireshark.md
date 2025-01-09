@@ -171,4 +171,18 @@ tshark -r example.pcap -T fields -e usb.iso.data | tr -d '\n' | xxd -r -p > audi
 ```
 
 * `tr -d '\n'`   Removes line breaks
-* `xxd -r -p > audio.raw`  `xxd` to create a hex dump or reverse a hex dump back to binary form. `-r` to reverse the process, converting a hex hump back into binary form. `-p` to use a plain hex dump format, where only the hex bytes are processed. 
+* `xxd -r -p > audio.raw`  `xxd` to create a hex dump or reverse a hex dump back to binary form. `-r` to reverse the process, converting a hex hump back into binary form. `-p` to use a plain hex dump format, where only the hex bytes are processed.
+
+
+To extract checksums and remove `0x` and add space to each binary
+```
+tshark -r example.pcap -T fields -e tcp.checksum | tr -d '\n' | sed 's/0x//g' | sed 's/../& /g' > result.txt
+```
+
+To extrack checksums and remove line breaks. No spaces between each binary. 
+```
+tshark -r example.pcap -T fields -e tcp.checksum | tr -d '\n' > result.txt
+```
+
+
+
