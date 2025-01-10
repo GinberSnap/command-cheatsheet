@@ -1,17 +1,44 @@
 # Hashcat quick reference
 
 #### Hashcat general use
-```
-hashcat -m 500 -a 0 -o result.txt hash /usr/share/wordlists/rockyou.txt
-```
 
+To crack MD5 (`-m 0`) using rockyou.txt
+```
+hashcat -m 0 -a 0 -o cracked.txt hash.txt /usr/share/wordlists/rockyou.txt
+```
+To crack SHA1 ('-m 100`) 
+```
+hashcat -m 0 -a 0 -o cracked.txt hash.txt /usr/share/wordlists/rockyou.txt
+```
 To crack MD5 that starts with CTF-ABCD-, followed by 4 digits.
 ```
-hashcat -a 3 -m 0 hash CTF-ABCD-?d?d?d?d
+hashcat -m 0 -a 3 hash CTF-ABCD-?d?d?d?d
 ```
 
-#### Use Hashcat on Windows
+#### Attack modes
+* `-a 0`: Straight (simple wordlist attack)
+* `-a 1`: Combination (combines words from two wordlists)
+* `-a 3`: Brute-force (all possible combinations based on mask)
+* `-a 6`: Hybrid wordlist + mask (wordlist + mask attack)
+* `-a 7`: Hybrid mask + wordlist (mask + wordlist attack)
+* `-a 0 --rules-file`: Dictionary + **Rule based** Mode
 
+**Rules**
+```
+hashcat -m 0 -a 0 hash.txt /usr/share/wordlists/rockyou.txt --rules-file /usr/share/wordlists/OneRuleToRuleThemAll.rule
+```
+
+#### Example Mask Syntax (-a 3 and -a 6, -a 7):
+
+* `?l`: Lowercase letter (a-z)
+* `?u`: Uppercase letter (A-Z)
+* `?d`: Digit (0-9)
+* `?s`: Special character (e.g., !, @, #)
+* `?b`: Space or control character
+* `?a`: Any character (lowercase, uppercase, digit, special character)
+
+
+### Use Hashcat on Windows
 ```
 cd hashcat
 
