@@ -2,11 +2,11 @@
 
 #### Hashcat general use
 
-To crack MD5 (`-m 0`) using rockyou.txt
+To crack MD5 `-m 0` using rockyou.txt
 ```
 hashcat -m 0 -a 0 -o cracked.txt hash.txt /usr/share/wordlists/rockyou.txt
 ```
-To crack SHA1 ('-m 100`) 
+To crack SHA1 `-m 100` 
 ```
 hashcat -m 0 -a 0 -o cracked.txt hash.txt /usr/share/wordlists/rockyou.txt
 ```
@@ -14,6 +14,7 @@ To crack MD5 that starts with CTF-ABCD-, followed by 4 digits.
 ```
 hashcat -m 0 -a 3 hash CTF-ABCD-?d?d?d?d
 ```
+[Hashcat Modes](https://hashcat.net/wiki/doku.php?id=example_hashes), [Man page](https://hashcat.net/wiki/doku.php?id=hashcat), [Hashcat Mask](https://hashcat.net/wiki/doku.php?id=mask_attack)
 
 #### Attack modes
 * `-a 0`: Straight (simple wordlist attack)
