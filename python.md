@@ -18,6 +18,12 @@ Deactivate
 deactivate
 ```
 
+### Decomplie Python 2.7 scripts
+
+```
+uncompyle6 -o . script.pyc
+```
+
 
 
 #### List all installed packages and dependencies. 
