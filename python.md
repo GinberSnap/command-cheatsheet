@@ -19,7 +19,9 @@ deactivate
 ```
 
 ### Decomplie Python 2.7 scripts
-
+```
+pip install uncompyle6
+```
 ```
 uncompyle6 -o . script.pyc
 ```
