@@ -90,3 +90,13 @@ md5crypt | `-m 500`
 $1$ | `-m 500`
 
 [Full list](https://hashcat.net/wiki/doku.php?id=example_hashes)
+
+
+## Wordlists
+
+Remove duplicate
+`awk '{ gsub(/[^a-zA-Z0-9]/, "", $0); line=tolower($0); if (!seen[line]++) print }'`
+
+Remove special characters and change all characters to lowercase
+`awk '{ gsub(/[^a-zA-Z0-9]/, ""); print tolower($0) }'`
+
