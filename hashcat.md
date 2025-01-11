@@ -88,13 +88,8 @@ $1$ | `-m 500`
 
 ## Wordlists
 
-Remove duplicate
+Remove duplicate, and lowercase
 ```
-awk '{ gsub(/[^a-zA-Z0-9]/, "", $0); line=tolower($0); if (!seen[line]++) print }'
-```
-
-Remove special characters and change all characters to lowercase
-```
-awk '{ gsub(/[^a-zA-Z0-9]/, ""); print tolower($0) }'
+awk '{ gsub(/[^a-zA-Z0-9 ]/, ""); print tolower($0) }' wordlist.txt > wordlist_clean.txt
 ```
 
