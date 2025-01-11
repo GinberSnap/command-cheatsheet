@@ -2,22 +2,22 @@
 
 #### Hashcat general use
 
-To crack MD5 `-m 0` using rockyou.txt
 ```
-hashcat -m 0 -a 0 -o cracked.txt hash.txt /usr/share/wordlists/rockyou.txt
+hashcat -a 0 -m 500 hash /usr/share/wordlists/rockyou.txt
+```
 ```
 To crack SHA1 `-m 100` 
 ```
-hashcat -m 0 -a 0 -o cracked.txt hash.txt /usr/share/wordlists/rockyou.txt
+hashcat -a 0 -m 0 -o cracked.txt hash.txt /usr/share/wordlists/rockyou.txt
 ```
 To crack MD5 that starts with CTF-ABCD-, followed by 4 digits.
 ```
-hashcat -m 0 -a 3 hash CTF-ABCD-?d?d?d?d
+hashcat -a 3 -m 0 hash CTF-ABCD-?d?d?d?d
 ```
 
 To crack MD5 that is min 8 and max 10 characters. 
 ```
-hashcat -m 500 -a 3 -o cracked.txt hash.txt /usr/share/wordlists/rockyou.txt --increment --increment-min=8 --increment-max=10
+hashcat -a 3 -m 500  -o cracked.txt hash.txt /usr/share/wordlists/rockyou.txt --increment --increment-min=8 --increment-max=10
 ```
 
 [Hashcat Modes](https://hashcat.net/wiki/doku.php?id=example_hashes), [Man page](https://hashcat.net/wiki/doku.php?id=hashcat), [Hashcat Mask](https://hashcat.net/wiki/doku.php?id=mask_attack)
