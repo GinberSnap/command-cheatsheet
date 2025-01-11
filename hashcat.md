@@ -92,4 +92,8 @@ Remove duplicate, and lowercase
 ```
 awk '{ gsub(/[^a-zA-Z0-9 ]/, ""); print tolower($0) }' wordlist.txt > wordlist_clean.txt
 ```
+Remove duplicate, and lowercase. Replace é with e. 
+```
+awk '{ gsub(/é/, "e"); gsub(/[^a-zA-Z0-9 ]/, ""); print tolower($0) }' videogames.txt > cleaned_videogames.txt
+```
 
