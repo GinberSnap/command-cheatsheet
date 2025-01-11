@@ -11,4 +11,9 @@ Installing musl on kali [here](https://github.com/GinberSnap/command-cheatsheet/
 5. `run`
 6. `c`
 
-
+```
+disass
+``` 
+```
+gef➤ info files
+```
