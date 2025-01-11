@@ -17,3 +17,6 @@ disass
 ```
 gef➤ info files
 ```
+```
+gef➤ break *0x980
+```
