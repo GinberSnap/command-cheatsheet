@@ -5,8 +5,8 @@
 ```
 hashcat -a 0 -m 500 hash /usr/share/wordlists/rockyou.txt
 ```
-```
-To crack SHA1 `-m 100` 
+
+To crack SHA1 -m 100 
 ```
 hashcat -a 0 -m 0 -o cracked.txt hash.txt /usr/share/wordlists/rockyou.txt
 ```
@@ -70,16 +70,10 @@ cat  fruits.txt veggies.txt > recipes.txt
 cewl -m 3 -w recipes.txt https://www.example.com/fruits
 ```
 #### Using rules
+
 ```
 hashcat -w 3 -a 0 -m 500 hash wordlist.txt -r OneRuleToRuleThemStill.rule
 ```
-```
-hashcat -w 3 -a 0 -m 500 hash wordlist.txt -r OneRuleToRuleThem.rule
-```
-
-
-`-w 3` : Show status as process
-
 
 #### Common Hash modes
 | Mode | Flag |
@@ -95,8 +89,12 @@ $1$ | `-m 500`
 ## Wordlists
 
 Remove duplicate
-`awk '{ gsub(/[^a-zA-Z0-9]/, "", $0); line=tolower($0); if (!seen[line]++) print }'`
+```
+awk '{ gsub(/[^a-zA-Z0-9]/, "", $0); line=tolower($0); if (!seen[line]++) print }'
+```
 
 Remove special characters and change all characters to lowercase
-`awk '{ gsub(/[^a-zA-Z0-9]/, ""); print tolower($0) }'`
+```
+awk '{ gsub(/[^a-zA-Z0-9]/, ""); print tolower($0) }'
+```
 
