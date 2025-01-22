@@ -41,7 +41,7 @@ echo source ~/.gdbinit-gef.py >> ~/.gdbinit
 sudo apt install ./code_1.88.1-12345_amd64.deb
 ```
 
-Note: Select `Arm64 .deb` for Raspberry pi 
+Note: Select `Arm64 .deb` for Raspberry pi. [Download link](https://code.visualstudio.com/download)
 
 
 ## Install Ghidra
