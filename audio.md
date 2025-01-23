@@ -23,3 +23,5 @@ Using ffmpeg to get information about a .wav
 ```
 ffmpeg -i music.wav
 ```
+
+[Convert wav to moss](https://morsecode.world/international/decoder/audio-decoder-adaptive.html)
