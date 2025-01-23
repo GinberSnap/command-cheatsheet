@@ -10,11 +10,16 @@ To play .wav audio file
 vlc music.wav
 ```
 
-To install ffmpeg 
+To get detail information about an audio file
 ```
-sudo apt install ffmpeg
+sox --i music.wav
 ```
-To get information about a .wav
+To convert audio format
+```
+sox input.wav output.mp3
+```
+
+Using ffmpeg to get information about a .wav
 ```
 ffmpeg -i music.wav
 ```
