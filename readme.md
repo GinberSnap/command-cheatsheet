@@ -56,6 +56,7 @@ chmod +x burpsuite_community_linux_arm64_v2024_12_1.sh
 [Burp Suite Community Download Link](https://portswigger.net/burp/releases/professional-community-2024-12-1)
 
 ## 8. Python Env
+```
 sudo apt install python3-dev python3-pip python3-venv
 ```
 
@@ -70,22 +71,3 @@ Deactivate
 ```
 deactivate
 ```
-
-
-
-
-
-
-## Installing musl
-
-```
-sudo apt install musl-tools
-```
-
-To verify installation
-```
-echo -e '#include <stdio.h>\nint main() { printf("Hello, musl-gcc\\n"); return 0; }' > hello_musl.c
-musl-gcc hello_musl.c -o hello_musl
-./hello_musl
-```
-
