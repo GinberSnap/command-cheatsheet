@@ -8,10 +8,44 @@
 * [FTP](#ftp)
 
 
+Open a pcap file 
+```
+wireshark -r filename.pcap
+```
+
+To find a channel
+```
+wlan.fc.type_subtype == 0x08
+
+```
 To find the organization operates the DNS resolver using command line
 ```
 whois 127.10.10.10
 ```
+To filter deauthenticated packets
+```
+wlan.fc.type_subtype == 0x0c
+
+```
+To filter out the packets that contain "deauthentication"
+```
+wlan.fc.type_subtype != 0x0c
+
+```
+To filter out the packets that contain "deauthentication" and data packets
+```
+!(wlan.fc.type_subtype == 0x0c) and !(wlan.fc.type == 2)
+```
+To filter out the packets that contain "deauthentication", data packets, and "authentication"
+```
+!(wlan.fc.type_subtype == 0x0c) and !(wlan.fc.type == 2) and !(wlan.fc.type_subtype == 0x0b)
+
+```
+To filter out the packets that contain "deauthentication", data packets, "authentication", and "acknowledgement"
+```
+!(wlan.fc.type_subtype == 0x0c) and !(wlan.fc.type == 2) and !(wlan.fc.type_subtype == 0x0b) and !(wlan.fc.type_subtype == 0x1d)
+```
+
 
 
 * To open a file with Wireshark `wireshark -r example.pcapng`

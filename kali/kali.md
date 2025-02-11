@@ -50,6 +50,19 @@ Note: Select `Arm64 .deb` for Raspberry pi. [Download link](https://code.visuals
 sudo apt install ghidra
 ```
 
+## Install Burp on Raspberry Pi 5
+```
+sudo apt install openjdk-17-jre -y
+java -version
+```
+```
+chmod +x burpsuite_community_linux_arm64_v2024_12_1.sh
+./burpsuite_community_linux_arm64_v2024_12_1.sh
+```
+
+[Burp Suite Community Download Link](https://portswigger.net/burp/releases/professional-community-2024-12-1)
+
+
 ## Installing musl
 
 ```
