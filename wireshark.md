@@ -230,4 +230,23 @@ To extract the Encrypted Application Data from the destination IP 127.0.0.1. Rem
 tshark -r example.pcap -Y "ip.dst == 127.0.0.1" -T fields -e tls.app_data | tr -d '\n' | sed 's/0x//g' | sed 's/../& /g' > result.txt
 ```
 
+**⚠️ Check binary data if there're any extra characters that preventing data from converting into image or other files**
+
+
+This will output data accordingly by the timestamp into text format to see any patterns or extra characters
+
+```
+tshark -r example.pcap -T fields -e frame.time -e data.data | sort | awk '{print $NF}' > result.txt
+```
+
+Removing the first 10 characters from the binary data and check using text format. 
+```
+tshark -r example.pcap -T fields -e frame.time -e data.data | sort | awk '{print $NF}' | cut -c 11- > result.txt
+```
+
+Finally extract data, removing the first 10 characters and convert into a png file
+
+```
+tshark -r example.pcap -T fields -e frame.time -e data.data | sort -n | awk '{print $NF}' | cut -c 11- | xxd -r -p > result.png
+```
 
