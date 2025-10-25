@@ -2,8 +2,7 @@
 
 ### 1. Kali update
 ```
-sudo apt update
-sudo apt full-upgrade -y
+sudo apt update && sudo apt full-upgrade -y
 ```
 
 ## 2. Wordlists & Rules
