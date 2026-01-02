@@ -36,6 +36,7 @@ Search for a flag
 sudo grep -R "Flag{" /mnt 2>/dev/null
 ```
 
+#### [Multiple Partitions](#partitions)
 Reference: Pico DISKO 2
 
 If `fdisk` shows a disk image has multiple partitions 
@@ -81,9 +82,7 @@ sudo dd if=disko-2.dd of=disko-2-part1.dd bs=512 skip=2048 count=51200
 sudo strings -a -o disko-2.dd | tail -c +1048577 | grep "flag{"
 ```
 
-===========================================
-
-
+To search for a flag directly a disk image file (Go to [partitions](#partitions))
 ```
 sudo strings -a -o example.dd | tail -c +1048577 | grep "flag{"
 ```
