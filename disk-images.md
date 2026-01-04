@@ -3,12 +3,12 @@
 
 Unzip the disk image
 ```
-gzip -d disko-1.dd.gz
+gzip -d example.dd.gz
 ```
 
 Mount the disk image
 ```
-sudo mount -o loop disko-1.dd /mnt
+sudo mount -o loop example.dd /mnt
 ```
 
 Check the file type
